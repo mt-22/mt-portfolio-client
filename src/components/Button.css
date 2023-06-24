@@ -1,0 +1,8 @@
+.mt-button {
+    padding: 0 2rem;
+    font-family: 'Varela Round';
+    font-size: 1.25rem;
+}
+.mt-button:hover {
+    cursor:pointer;
+}

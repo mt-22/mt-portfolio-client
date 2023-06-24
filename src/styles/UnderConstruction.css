@@ -1,0 +1,12 @@
+#construction-title-view {
+    background: linear-gradient(0deg,rgba(0,0,0,.3),rgba(0,0,0,.3)),url('../media/construction.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.construction-nav {
+    align-self: start;
+}
+#construction-title {
+    align-self: start;
+}
