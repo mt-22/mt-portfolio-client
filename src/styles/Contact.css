@@ -128,6 +128,13 @@
     font-weight: 400;
     margin-top: 2rem;
 }
+.contact-loading {
+    color: white;
+}
+.contact-loading-text {
+    color:#505050;
+    font-family: 'Varela Round';
+}
 
 @media all and (max-width: 450px) {
     #contact-title h1 {

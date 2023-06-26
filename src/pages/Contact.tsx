@@ -9,6 +9,7 @@ import Footer from '../components/Footer'
 import Button from '../components/Button'
 import httpClient, { hostURL } from '../httpClient'
 import ReCAPTCHA from "react-google-recaptcha"
+import {Spinner} from 'react-bootstrap';  
 
 const Contact = () => {
     const bodyInputRef = useRef<HTMLTextAreaElement>(null)
@@ -17,9 +18,11 @@ const Contact = () => {
     const [body, setBody] = useState('')
     const [submitDisabled, setSubmitDisabled] = useState(true)
     const [verified, setVerified] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         adjustTextArea()
+
     }, [body])
 
     const key = "6LeY9McmAAAAAGXu3BY1uScrMq70QGnbNNbCpVJA" //put in env var
@@ -32,6 +35,8 @@ const Contact = () => {
     const submitMessage = async () => {
         if (name.length > 0 && email.length > 0 && body.length > 0 &&  !submitDisabled) {
             setSubmitDisabled(true)
+            setLoading(true)
+            console.log('foo')
             try {
                 console.log('try email')
                 const resp = await httpClient.post(hostURL + 'contact', {
@@ -45,6 +50,8 @@ const Contact = () => {
             } catch (error:any) {
                 console.log(error)
             }
+            setLoading(false)
+            console.log('bar')
         }
     }
 
@@ -64,10 +71,10 @@ const Contact = () => {
             </div>
             <div className="main-view" id="main-view">
                 <NavBar>
-                    <NavItem text="Home" link="/"/>
-                    <NavItem text="Contact" link="#contact-view" right={true}/>
-                    <NavItem text="Projects" link="/projects"/>
-                    <NavItem text="Blog" link="/blog"/>
+                        <NavItem text="Home" link="/"/>
+                        <NavItem text="Contact" link="#contact-view" right={true}/>
+                        <NavItem text="Projects" link="/projects"/>
+                        <NavItem text="Blog" link="/blog"/>
                 </NavBar>
                 <div className="section-view" id="contact-view">
                     <h2 className="section-heading" id="contact-heading">Contact Me</h2>
@@ -107,6 +114,10 @@ const Contact = () => {
                             className={"contact-submit-button"}
                             id={(submitDisabled? "contact-submit-button-disabled" : " ")}
                             />
+                            {loading && <>
+                            <Spinner className="contact-loading"/>
+                            <p className='contact-loading-text'>Long wait times may be due to server waking up.</p>
+                            </>}
                             <ReCAPTCHA 
                             sitekey={key} 
                             size="normal" 
