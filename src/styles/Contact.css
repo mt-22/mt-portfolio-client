@@ -128,3 +128,20 @@
     font-weight: 400;
     margin-top: 2rem;
 }
+
+@media all and (max-width: 450px) {
+    #contact-title h1 {
+        font-size: 5rem;
+    }
+    #contact-title {
+        height: 13.5rem
+    }
+}
+@media all and (max-width: 350px) {
+    #contact-title h1 {
+        font-size: 4rem;
+    }
+    #contact-title {
+        height: 12rem;
+    }
+}

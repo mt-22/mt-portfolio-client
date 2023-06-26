@@ -64,14 +64,10 @@ const Contact = () => {
             </div>
             <div className="main-view" id="main-view">
                 <NavBar>
-                    <div className='nav-right'>
-                        <NavItem text="Contact" link="#contact-view"/>
-                        <NavItem text="Projects" link="/projects"/>
-                        <NavItem text="Blog" link="/blog"/>
-                    </div>
-                    <div className="nav-left">
-                        <NavItem text="Home" link="/"/>
-                    </div>
+                    <NavItem text="Home" link="/"/>
+                    <NavItem text="Contact" link="#contact-view" right={true}/>
+                    <NavItem text="Projects" link="/projects"/>
+                    <NavItem text="Blog" link="/blog"/>
                 </NavBar>
                 <div className="section-view" id="contact-view">
                     <h2 className="section-heading" id="contact-heading">Contact Me</h2>

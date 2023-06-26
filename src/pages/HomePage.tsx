@@ -275,7 +275,7 @@ const HomePage = () => {
             <div className="main-view" id="main-view">
                 {/* <NavBar/> */}
                 <NavBar>
-                    <div className='nav-left'>
+                    {/* <div className='nav-left'>
                         <NavItem text="Top" link="#top-view"/>
                         <NavItem text="About" link="#about-view"/>
                         <NavItem text="Technical Skills" link="#hardskills-view"/>
@@ -286,7 +286,15 @@ const HomePage = () => {
                         <NavItem text="Contact" link="/contact"/>
                         <NavItem text="Projects" link="/projects"/>
                         <NavItem text="Blog" link="/blog"/>
-                    </div>
+                    </div> */}
+                        <NavItem text="Top" link="#top-view"/>
+                        <NavItem text="About" link="#about-view"/>
+                        <NavItem text="Technical Skills" link="#hardskills-view"/>
+                        <NavItem text="Soft Skills" link="#softskills-view"/>
+                        <NavItem text="Experience" link="#experience-view"/>
+                        <NavItem text="Contact" link="/contact" right={true}/>
+                        <NavItem text="Projects" link="/projects"/>
+                        <NavItem text="Blog" link="/blog"/>
                 </NavBar>
                 <div className='about-view section-view' id='about-view'>
                     <h2 className='section-heading'>About Me</h2>

@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
+import {ReactComponent as MenuLines} from '../media/menu-lines.svg'
 
 
 
 type INavItem = {
   link: string,
-  text: string
+  text: string,
+  className?: string,
+  right?: boolean
 }
-export const NavItem = ({link, text}:INavItem) => {
+export const NavItem = ({link, text, right, className=""}:INavItem) => {
   return (
-    <a className='nav-item' href={link}>{text}</a>
+    <a className={'nav-item ' + className + (right ? 'nav-item-right' : "")} href={link}>{text}</a>
   )
 }
 
@@ -18,22 +21,18 @@ type NavProps = {
 }
 
 export const NavBar = (props:NavProps) => {
+  const [showMenu, setShowMenu] = useState(false)
+
+  const menuClick = () => {
+    setShowMenu(!showMenu)
+  }
+
   return (
-    // <div className="nav-bar">
-    //     <div className='nav-left'>
-    //         <a className='nav-item' href='#top-view'>Top</a>
-    //         <a className='nav-item' href='#about-view'>About Me</a>
-    //         <a className='nav-item' href='#hardskills-view'>Technical Skills</a>
-    //         <a className='nav-item' href='#softskills-view'>Soft Skills</a>
-    //         <a className='nav-item' href='#experience-view'>Experience</a>
-    //     </div>
-    //     <div className='nav-right'>
-    //         <a className='nav-item' href='/contact'>Contact</a>
-    //         <a className='nav-item' href=''>Projects</a>
-    //         <a className='nav-item' href=''>Blog</a>
-    //     </div>
-    // </div>
-    <div className={'nav-bar ' + props.className}>
+    <div className={'nav-bar ' + (props.className ? props.className : "") + (showMenu ? " nav-bar-menu" : "")}>
+      <MenuLines 
+      className='menu-lines'
+      onClick={menuClick}
+      />
       {props.children}
     </div>
   )

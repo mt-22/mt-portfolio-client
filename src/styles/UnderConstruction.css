@@ -6,7 +6,26 @@
 }
 .construction-nav {
     align-self: start;
+    position: absolute;
 }
 #construction-title {
-    align-self: start;
+    align-self: center;
+
+}
+
+@media all and (max-width: 450px) {
+    #construction-title h1 {
+        font-size: 3.5rem;
+    }
+    #construction-title {
+        height: 13.5rem;
+    }
+}
+@media all and (max-width: 375px) {
+    #construction-title h1 {
+        font-size: 2.75rem;
+    }
+    #construction-title {
+        height: 12rem;
+    }
 }

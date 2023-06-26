@@ -6,16 +6,29 @@
     font-family: 'Varela Round';
     src: url('../fonts/Varela_Round/VarelaRound-Regular.ttf');
 }
+.menu-lines {
+  display: none;
+  height: 4rem;
+  width: auto;
+  padding: 1rem 0;
+  fill: white;
+}
+.menu-lines:hover {
+  cursor: pointer;
+}
 
 #root {
     min-height: 100vh;
 }
 
-.nav-right {
+/* .nav-right {
     display: flex;
     flex-direction: row;
     margin-left: auto;
     order:2;
+} */
+.nav-item-right {
+  margin-left: auto;
 }
 
 .nav-left {
@@ -34,6 +47,19 @@
     top:0;
     z-index: 9999;
     width: 100%;
+}
+
+.nav-bar-menu {
+  flex-direction: column;
+  height: fit-content;
+  align-items: center;
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+  gap: 1rem;
+}
+
+.nav-bar-menu .nav-item {
+  display: block;
 }
 
 .nav-item {
@@ -132,6 +158,16 @@
 @media all and (max-width: 700px) {
   .nav-item {
     display: none;
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  .nav-bar {
+    justify-content: center;
+  }
+  .menu-lines {
+    display: block;
+    position: absolute;
+    top: 0;
   }
 }
 
