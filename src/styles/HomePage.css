@@ -2,8 +2,9 @@
   width: 100%;
   height: 100vh;
   position: relative;
-  background: linear-gradient(0deg,rgba(0,0,0,.3),rgba(0,0,0,.3)),url('../media/willamette_valley_portrate.jpg');
+  background: linear-gradient(0deg,rgba(0,0,0,.3),rgba(0,0,0,.3)),url('https://cdn.pixabay.com/photo/2012/10/20/02/06/rocky-62127_1280.jpg');
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   display: grid;
   justify-items: center;
