@@ -20,6 +20,13 @@
 #root {
     min-height: 100vh;
 }
+.bg-image {
+  width: 100%;
+  height:100%;
+  position: absolute;
+  place-self: center;
+  object-fit: cover;
+}
 
 /* .nav-right {
     display: flex;

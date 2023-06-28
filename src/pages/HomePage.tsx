@@ -14,6 +14,7 @@ import {ReactComponent as GithubLogo} from '../media/github-logo.svg'
 import TimeLine from '../components/TimeLine';
 import Footer from '../components/Footer';
 import '../styles/HomePage.css';
+import BackgroundImage from '../media/homepagebackground.jpg'
 
 const HomePage = () => {
     const topViewRef = useRef(null)
@@ -264,6 +265,7 @@ const HomePage = () => {
     <div className="page home-page">
         <div className="body">
             <div ref={topViewRef} className="top-view" id="top-view">
+                <img src={BackgroundImage} className='bg-image'/>
                 <div className='social-links' id="homepage-social-links">
                     <a className='social-icon-link' href="https://www.linkedin.com/in/marshalldt/" target="_blank" rel="noopener noreferrer"><LinkedInLogo className="social-icon"/></a>
                     <a className='social-icon-link'href="https://www.instagram.com/marshallt22_/" target="_blank" rel="noopener noreferrer"><InstagramLogo className="social-icon"/></a>

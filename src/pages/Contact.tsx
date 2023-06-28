@@ -10,6 +10,7 @@ import Button from '../components/Button'
 import httpClient, { hostURL } from '../httpClient'
 import ReCAPTCHA from "react-google-recaptcha"
 import {Spinner} from 'react-bootstrap';  
+import BackgroundImage from '../media/contactbackground.jpg'
 
 const Contact = () => {
     const bodyInputRef = useRef<HTMLTextAreaElement>(null)
@@ -64,6 +65,7 @@ const Contact = () => {
     <div className="page contact-page">
         <div className="body">
             <div className="top-view contact-title-view" id="contact-title-view">
+                <img src={BackgroundImage} className='bg-image'/>
                 <div className={"name-wrapper"} id="contact-title">
                     <h1 className='IBMPlex'>Contact</h1>
                 </div>
