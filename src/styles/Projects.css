@@ -1,0 +1,101 @@
+.projects-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 5rem;
+    column-gap: 2rem;
+    justify-content: space-around;
+    margin-top: 2rem;
+    padding: 2rem;
+    width: fit-content;
+}
+#project-heading {
+    width: fit-content;
+    margin: 5rem auto;
+    border-bottom: 3px solid #00A7E1;
+    font-size: 4rem;
+}
+.project-wrapper {
+    --project-width: 20rem;
+    --project-height: 15rem;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    box-shadow: 0 0 7.5px rgba(0,0,0,.7);
+}
+.project-image {
+    height: var(--project-height);
+    width: var(--project-width);
+    object-fit: cover;
+    position: relative;
+    border-radius: 25px 25px 0 0;
+}
+.project-label {
+    text-align: center;
+    position: relative;
+    background-color: #272727;
+    border-radius: 0 0 25px 25px;
+    padding: 1rem;
+    margin: 0;
+}
+.project-info {
+    position: absolute;
+    height: var(--project-height);
+    width: var(--project-width);
+    padding: 0 2rem;
+    z-index: 999;
+    background: #272727BB;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    opacity: 0;
+    transition: opacity 0.25s;
+    border-radius: 25px 25px 0 0;
+}
+.project-wrapper:hover .project-info {
+    opacity: 1;
+}
+.project-link-wrapper {
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-right: auto;
+}
+.project-info p {
+    margin: 0;
+    text-align: left;
+    line-height: 2rem;
+    white-space: pre-line;  
+    vertical-align: bottom;
+}
+.project-info a {
+    color: white;
+}
+.project-page .social-icon:hover {
+    fill: #00A7E1
+}
+.project-page #resume-link:hover {
+    background-color: #00A7E1
+}
+
+@media all and (max-width: 400px) {
+    .projects-container {
+        padding: 1rem;
+    }
+    .project-wrapper {
+        --project-height: 12.5rem;
+        --project-width: 17.5rem;
+    }
+}
+@media all and (max-width: 300px) {
+    .projects-container {
+        padding: 1rem;
+    }
+    .project-wrapper {
+        --project-height: 12.5rem;
+        --project-width: 14rem;
+    }
+}

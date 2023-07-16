@@ -76,7 +76,7 @@ const HomePage = () => {
                         <Carousel.Caption>
                         <h3 className="about-slide-title">Dogs</h3>
                         <p className='about-slide-caption'>
-                            My mother is a dog-breeder, and I like to spend time with my many white-shepherds.
+                            I like to spend time with my many white-shepherds.
                         </p>
                         </Carousel.Caption>
                     </Carousel.Item>

@@ -39,8 +39,7 @@ const Contact = () => {
             setLoading(true)
             console.log('foo')
             try {
-                console.log('try email')
-                const resp = await httpClient.post(hostURL + 'contact', {
+                const resp = await httpClient.post('//localhost:5000/' + 'contact', {
                     name,
                     email,
                     body
