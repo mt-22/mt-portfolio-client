@@ -234,7 +234,7 @@ const HomePage = () => {
         },
         {
             title: 'SheerID Internship',
-            text: 'I had a temporary internship at the company SheerID, where I worked with the UX engineering team',
+            text: 'I had a temporary internship at the company SheerID. I solely developed an ROI calulating web-app increasing sales, as well as contributed to API',
             date: '07/21 - 09/22',
             category: {
                 label: 'Job',
@@ -272,7 +272,7 @@ const HomePage = () => {
                     <a className='social-icon-link' href="https://github.com/mt-22" target="_blank" rel="noopener noreferrer"><GithubLogo className="social-icon"/></a>
                 </div>
                 <ViewportNameHead/>
-                <a href="#about-view"><img className='down-arrow' src={arrow} alt="down-arrow"/></a>
+                <a href="#hardskills-view"><img className='down-arrow' src={arrow} alt="down-arrow"/></a>
             </div>
             <div className="main-view" id="main-view">
                 {/* <NavBar/> */}
@@ -290,34 +290,14 @@ const HomePage = () => {
                         <NavItem text="Blog" link="/blog"/>
                     </div> */}
                         <NavItem text="Top" link="#top-view"/>
-                        <NavItem text="About" link="#about-view"/>
                         <NavItem text="Technical Skills" link="#hardskills-view"/>
                         <NavItem text="Soft Skills" link="#softskills-view"/>
                         <NavItem text="Experience" link="#experience-view"/>
+                        <NavItem text="About" link="#about-view"/>
                         <NavItem text="Contact" link="/contact" right={true}/>
                         <NavItem text="Projects" link="/projects"/>
                         <NavItem text="Blog" link="/blog"/>
                 </NavBar>
-                <div className='about-view section-view' id='about-view'>
-                    <h2 className='section-heading'>About Me</h2>
-                    <div className='about-wrapper-top'>
-                        <div className='about-content-wrapper'>
-                            <p className='about-content'>
-                            Hey everyone! I am Marshall Taylor, and I am a current student at the University of Massachusetts-- Amherst. 
-                            I am currently pursuing a B.S. in Computer Engineering, and hold a strong passion for software development. 
-                            I have experience in a variety of technologies and languages, including Python, Javascript, Typescript, Swift, 
-                            React, Flask, and more. I completed an internship at SheerID in Eugene, OR where I worked with react and solely 
-                            created a ROI calculating web-application to increase sales. I have also competed in robotics, leading my team 
-                            to qualify for the world championship tournament.
-                            </p>
-                            <br/>
-                            <p className='about-content'>I am constantly working on new projects, seeking to learn new technologies, 
-                            and expanding the scope of my capabilities.</p>
-                        </div>
-                        <ViewportPortraitImage/>
-                    </div>
-                    <ViewportImageCarousel/>
-                </div>
                 <div className="hardskills-view section-view" id="hardskills-view">
                     <h2 className='section-heading'>Technical Skills</h2>
                     <ViewportPar className="section-sub-heading"
@@ -368,6 +348,26 @@ const HomePage = () => {
                     <div className="experience-wrapper">
                         <TimeLine timeLineData={timeLineData}/>
                     </div>
+                </div>
+                <div className='about-view section-view' id='about-view'>
+                    <h2 className='section-heading'>About Me</h2>
+                    <div className='about-wrapper-top'>
+                        <div className='about-content-wrapper'>
+                            <p className='about-content'>
+                            Hey everyone! I am Marshall Taylor, and I am a current student at the University of Massachusetts-- Amherst. 
+                            I am currently pursuing a B.S. in Computer Engineering, and hold a strong passion for software development. 
+                            I have experience in a variety of technologies and languages, including Python, Javascript, Typescript, Swift, 
+                            React, Flask, and more. I completed an internship at SheerID in Eugene, OR where I worked with react and solely 
+                            created a ROI calculating web-application to increase sales. I have also competed in robotics, leading my team 
+                            to qualify for the world championship tournament.
+                            </p>
+                            <br/>
+                            <p className='about-content'>I am constantly working on new projects, seeking to learn new technologies, 
+                            and expanding the scope of my capabilities.</p>
+                        </div>
+                        <ViewportPortraitImage/>
+                    </div>
+                    <ViewportImageCarousel/>
                 </div>
             </div>
         </div>
