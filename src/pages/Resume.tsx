@@ -4,7 +4,7 @@ import Document from 'react-pdf'
 const Resume = () => {
   return (
     <div style={{height:"100vh", width:"100%", margin:0}}>
-        <iframe src="https://docs.google.com/gview?url=https://github.com/mt-22/mt-22.github.io/raw/master/mtaylor_resume.pdf&embedded=true"
+        <iframe src="https://drive.google.com/file/d/1kiJJd5B52-EMDjlzuUlZr6j3nhj_BiuY/preview"
         style={{width:"100%", height:"100%"}}
         />
     </div>
