@@ -109,9 +109,15 @@ const Contact = () => {
                             value={body}
                             onChange={(e) => setBody(e.target.value)}
                             />
-                            <Button 
+{/*                             <Button 
                             text="Submit" 
                             onClick={submitMessage}
+                            className={"contact-submit-button"}
+                            id={(submitDisabled? "contact-submit-button-disabled" : " ")}
+                            /> */}
+                            <Button 
+                            text="Contact API Currently Down :/" 
+                            onClick={}
                             className={"contact-submit-button"}
                             id={(submitDisabled? "contact-submit-button-disabled" : " ")}
                             />
