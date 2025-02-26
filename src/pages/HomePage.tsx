@@ -259,6 +259,15 @@ const HomePage = () => {
                 color: 'grey'
             }
         },
+        {
+            title: 'Second Year of University',
+            text: "I finished my 2nd year of University of a 3.98 GPA. Some highlights include doing a 32bit Multithreading lab, making the Dean's List, and recieving the merit-based Koren Award.",
+            date: '09/23 - 05/24',
+            category: {
+                label: 'Education',
+                color: 'grey'
+            }
+        },
     ]
 
   return (
