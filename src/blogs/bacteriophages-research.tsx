@@ -26,7 +26,7 @@ const BacteriophagesResearch: React.FC = () => {
             We have been using <a href="https://www.sciencedirect.com/science/article/pii/S1369527419300190">antibiotics</a> to
             treat infections since the 1930s, and as such <a href="https://www.who.int/news-room/fact-sheets/detail/antimicrobial-resistance#:~:
             // text=The%20misuse%20and%20overuse%20of,development%20of%20drug%2Dresistant%20pathogens.">antibiotic-resistant bacteria</a> is
-             becoming increasingly common. But hold hope, becase for fighting bacteria antibiotics may have an
+             becoming increasingly common. But hold hope, because for fighting bacteria, antibiotics may have an
             alternative: <i><a href="https://www.britannica.com/science/bacteriophage">bacteriophages</a></i>.
           </p>
           
@@ -40,7 +40,7 @@ const BacteriophagesResearch: React.FC = () => {
           </p>
           <img className='phage-diagram' src={BacteriophageDiagram} alt="bactiophage-diagram"/>
           </div> 
-          <p>Due to their predatory relationship against bacteria, bacteriophages play a vital role in micribiome populations
+          <p>Due to their predatory relationship against bacteria, bacteriophages play a vital role in microbiome populations
             everywhere, including in your stomach.
           </p>
           <div className="video-container">
@@ -55,7 +55,7 @@ const BacteriophagesResearch: React.FC = () => {
           <h2>So What's the Big Deal?</h2>
           <h3><i>Bacteriophages as an Alternative to Antibiotics</i></h3>
           <p>Bacteriophages have undergone study for medical purposes for ~100 years with promising results.
-            Phage therapy can work to aid, or replace antibiotics as means for fighting bacteria. 
+            Phage therapy can work to aid, or replace antibiotics as a means of fighting bacteria. 
             The <i>National Institute of Health</i> article, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5547374/">
             Phage therapy: An alternative to antibiotics in the age of multi-drug resistance</a>, references
             a large number of studies that all show positive results for phage-therapy, as summarized in the following table:
