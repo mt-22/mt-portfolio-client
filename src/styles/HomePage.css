@@ -60,17 +60,6 @@
   padding: 0;
   height: 100%
 }
-.down-arrow {
-  position: relative;
-  height: 2.5rem;
-  width: auto;
-  bottom: 2rem
-}
-.down-arrow:hover {
-  animation-name: wiggle;
-  animation-duration: 250ms;
-  animation-timing-function: ease-in-out
-}
 .section-view {
   width: 100%;
   min-height: 100vh;

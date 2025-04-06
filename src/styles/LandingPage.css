@@ -1,0 +1,126 @@
+
+  .section-sub-heading {
+      font-family: 'Varela Round';
+      font-size: 1.25rem;
+  }
+  .section-sub-heading-try {
+      animation-name: fade-in;
+      animation-duration: 0.75s;
+      animation-timing-function: ease-in-out
+  }
+  .name-wrapper-try {
+    animation-name: drift-up;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out
+  }
+
+/*above is from homepage.css*/
+.landing-title-view {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: grid;
+    justify-items: center;
+}
+
+.landing-title-gradient {
+    background: linear-gradient(135deg, #7c2c1a, #9b3005);
+}
+
+.landing-title-view .name-wrapper {
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: none;
+    background: none;
+    align-self: center;
+    text-align: center;
+}
+
+.landing-title-view .name-wrapper h1 {
+    color: #fff;
+    font-size: 5rem;
+    background: rgba(0,0,0,.05);
+    backdrop-filter: blur(2.5px);
+    border: 10px solid #fff;
+    padding: 1rem 15%;
+
+}
+
+.down-arrow-container {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.down-arrow {
+    width: 30px;
+    height: 30px;
+    animation: float 2s ease-in-out infinite;
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.down-arrow-container:hover .down-arrow {
+    animation: float 2s ease-in-out infinite, wiggle 0.5s ease-in-out;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes wiggle {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    50% { transform: rotate(-10deg); }
+    75% { transform: rotate(5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@media all and (max-width: 700px) {
+    .landing-title-view .name-wrapper h1 {
+        font-size: rem;
+    }
+}
+
+@media all and (max-width: 850px) {
+    .landing-title-view .name-wrapper h1 {
+        font-size: 3.5rem;
+    }
+    .landing-title-view .name-wrapper {
+        height: 16rem;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .landing-title-view .name-wrapper h1 {
+        font-size: 3rem;
+        padding: 1rem 10%;
+    }
+} 
+
+@media all and (max-width: 450px) {
+    .landing-title-view .name-wrapper h1 {
+        font-size: 2rem;
+    }
+} 
+
+
+

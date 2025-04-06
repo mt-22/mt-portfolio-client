@@ -1,18 +1,15 @@
 import React, { useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';  
 import {Carousel} from 'react-bootstrap';  
-import arrow from '../media/arrow.svg'
 import portrait from '../media/portrait.jpg'
 import {MTCar, MTRacing, MTMex, MTCampus, MTDogs, TSLogo, PyLogo, SQLLogo, ReactLogo, SwiftLogo, FlaskLogo, GitLogo, HTMLLogo} from '../media'
 import handleViewport from 'react-in-viewport'
 import PercentBar from '../components/PercentBar';
 import Check from '../media/check.svg';
 import {NavBar, NavItem} from '../components/NavBar';
-import {ReactComponent as LinkedInLogo} from '../media/linkedin-logo.svg'
-import {ReactComponent as InstagramLogo} from '../media/instagram-logo.svg'
-import {ReactComponent as GithubLogo} from '../media/github-logo.svg'
 import TimeLine from '../components/TimeLine';
 import Footer from '../components/Footer';
+import LandingPage from '../components/LandingPage';
 import '../styles/HomePage.css';
 import BackgroundImage from '../media/homepagebackground.jpg'
 
@@ -271,18 +268,13 @@ const HomePage = () => {
     ]
 
   return (
-    <div className="page home-page">
+    <div className="page">
         <div className="body">
-            <div ref={topViewRef} className="top-view" id="top-view">
-                <img src={BackgroundImage} className='bg-image'/>
-                <div className='social-links' id="homepage-social-links">
-                    <a className='social-icon-link' href="https://www.linkedin.com/in/marshalldt/" target="_blank" rel="noopener noreferrer"><LinkedInLogo className="social-icon"/></a>
-                    <a className='social-icon-link'href="https://www.instagram.com/marshallt22_/" target="_blank" rel="noopener noreferrer"><InstagramLogo className="social-icon"/></a>
-                    <a className='social-icon-link' href="https://github.com/mt-22" target="_blank" rel="noopener noreferrer"><GithubLogo className="social-icon"/></a>
-                </div>
-                <ViewportNameHead/>
-                <a href="#hardskills-view"><img className='down-arrow' src={arrow} alt="down-arrow"/></a>
-            </div>
+            <LandingPage 
+                backgroundImage={BackgroundImage}
+                title="Marshall Taylor"
+                scrollToId="hardskills-view"
+            />
             <div className="main-view" id="main-view">
                 {/* <NavBar/> */}
                 <NavBar>
