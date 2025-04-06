@@ -1,13 +1,13 @@
 import React from 'react';
-import '../styles/BlogPostPage.css';
+import '../styles/BlogPost.css';
 import bacteriophagesImage from '../media/bacteriophages_compressed.webp';
 import BacteriophageDiagram from '../media/bacteriophage-diagram.webp'
 import '../styles/BacteriophageBlog.css'
 
 export const metadata = {
   title: 'Exploring Bacteriophages: Nature\'s Tiny Warriors',
-  date: '2024-03-20',
-  category: 'Science',
+  date: '2025-04-02',
+  category: 'Biology',
   slug: 'bacteriophages-research',
   coverImage: bacteriophagesImage
 };
@@ -26,7 +26,7 @@ const BacteriophagesResearch: React.FC = () => {
             We have been using <a href="https://www.sciencedirect.com/science/article/pii/S1369527419300190">antibiotics</a> to
             treat infections since the 1930s, and as such <a href="https://www.who.int/news-room/fact-sheets/detail/antimicrobial-resistance#:~:
             // text=The%20misuse%20and%20overuse%20of,development%20of%20drug%2Dresistant%20pathogens.">antibiotic-resistant bacteria</a>
-            is becomming evermore of a common occurrence. But hold hope, becase for fighting bacteria antibiotics may have an
+            is becoming increasingly common. But hold hope, becase for fighting bacteria antibiotics may have an
             alternative: <i><a href="https://www.britannica.com/science/bacteriophage">bacteriophages</a></i>.
           </p>
           
@@ -44,11 +44,13 @@ const BacteriophagesResearch: React.FC = () => {
             everywhere, including in your stomach.
           </p>
 
-          <h2>So Whats the Big Deal?</h2>
+          <h2>So What's the Big Deal?</h2>
           <h3><i>Bacteriophages as an Alternative to Antibiotics</i></h3>
-          <p>Bacteriophages have undergone study for medical purposes for ~100 years with promising results. The <i>National Institute of Health</i> article, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5547374/">
+          <p>Bacteriophages have undergone study for medical purposes for ~100 years with promising results.
+            Phage therapy can work to aid, or replace antibiotics as means for fighting bacteria. 
+            The <i>National Institute of Health</i> article, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5547374/">
             Phage therapy: An alternative to antibiotics in the age of multi-drug resistance</a>, references
-            a number large number of studies that all show positive results for phage-therapy, which you can see below:
+            a large number of studies that all show positive results for phage-therapy, as summarized in the following table:
           </p>
           
           <div className="table-container">
@@ -200,22 +202,26 @@ const BacteriophagesResearch: React.FC = () => {
               "Phage therapy: An alternative to antibiotics in the age of multi-drug resistance"</a>, National Institutes of Health (NIH).
             </div>
           </div>
-          
-          <h2>Future Research Directions</h2>
           <p>
-            Current research focuses on:
+            The data in the table above illustrates just how powerful, and versatile phage therapy can be. Across both
+            human and animal studies, phage therapy has shown effective results. However, we still face some
+            challenges: long-term stability of phage preparations, effective screening, <a href='https://pubmed.ncbi.nlm.nih.gov/32576653/#:~:text=Our%20results%20provide%20a%20clear,;%20resistance%20evolution;%20spatial%20simulation.'>biofilm phage-resistance</a>,
+             and more (see <a href='https://pmc.ncbi.nlm.nih.gov/articles/PMC9550173/#s0010'>here</a> for more information). 
           </p>
-          <ul>
-            <li>Engineering phages for enhanced therapeutic properties</li>
-            <li>Understanding phage-bacteria interactions</li>
-            <li>Developing phage-based diagnostics</li>
-            <li>Exploring phage applications in agriculture</li>
-          </ul>
-
+          <h3><i>Phage Therapy Driven by AI</i></h3>
           <p>
-            As we continue to explore the potential of bacteriophages, they may become 
-            increasingly important tools in our fight against bacterial infections and 
-            in maintaining microbial balance in various environments.
+            As AI systems become more powerful, the way in which we <i>find, classify, and optimize</i> bacteriophages
+            does as well. A study from <i>BioMed Central</i>: <a href='https://bmcmicrobiol.biomedcentral.com/articles/10.1186/s12866-021-02256-5#Abs1'>
+            Phage therapy: An alternative to antibiotics in the age of multi-drug resistance</a> discusses how we are
+            able to use machine-learning technology to predict how a given phage might interact with hosts. As such,
+            we are able to predict which phages could potentially kill a given bacteria, as well as predict the host-range
+            of a particular phage.
+          </p>
+          <p>AI has other uses in phage-therapy, particularly when integrated with <a href='https://www.sciencedirect.com/science/article/abs/pii/S2214799325000049?utm_source=chatgpt.com'>
+          synthetic biology</a> applications. A study found at <i>Science Direct</i>, <a href='https://www.sciencedirect.com/science/article/abs/pii/S2214799325000049?utm_source=chatgpt.com'>
+          Phage engineering using synthetic biology and artificial intelligence to enhance phage applications in
+          food industry</a>, discusses leveraging AI with synthetic biology to modify phages to achieve a set of desired
+          characteristics. 
           </p>
         </div>
       </div>
