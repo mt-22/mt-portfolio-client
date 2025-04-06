@@ -350,6 +350,12 @@
     padding: 0 1rem;
   }
 }
+@media all and (max-width: 375px) {
+  .hardskill-image {
+    height: 2rem;
+  }
+}
+
 
 .home-page .social-icon:hover {
   fill: #ff4b3e;
