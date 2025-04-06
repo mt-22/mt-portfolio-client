@@ -25,8 +25,8 @@ const BacteriophagesResearch: React.FC = () => {
           <p>
             We have been using <a href="https://www.sciencedirect.com/science/article/pii/S1369527419300190">antibiotics</a> to
             treat infections since the 1930s, and as such <a href="https://www.who.int/news-room/fact-sheets/detail/antimicrobial-resistance#:~:
-            // text=The%20misuse%20and%20overuse%20of,development%20of%20drug%2Dresistant%20pathogens.">antibiotic-resistant bacteria</a>
-            is becoming increasingly common. But hold hope, becase for fighting bacteria antibiotics may have an
+            // text=The%20misuse%20and%20overuse%20of,development%20of%20drug%2Dresistant%20pathogens.">antibiotic-resistant bacteria</a> is
+             becoming increasingly common. But hold hope, becase for fighting bacteria antibiotics may have an
             alternative: <i><a href="https://www.britannica.com/science/bacteriophage">bacteriophages</a></i>.
           </p>
           
