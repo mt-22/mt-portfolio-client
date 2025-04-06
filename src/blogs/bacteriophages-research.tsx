@@ -43,6 +43,14 @@ const BacteriophagesResearch: React.FC = () => {
           <p>Due to their predatory relationship against bacteria, bacteriophages play a vital role in micribiome populations
             everywhere, including in your stomach.
           </p>
+          <div className="video-container">
+            <iframe 
+              src="https://www.youtube.com/embed/-w4C74cu6dk" 
+              title="Bacteriophages Video" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowFullScreen>
+            </iframe>
+          </div>
 
           <h2>So What's the Big Deal?</h2>
           <h3><i>Bacteriophages as an Alternative to Antibiotics</i></h3>
@@ -222,6 +230,11 @@ const BacteriophagesResearch: React.FC = () => {
           Phage engineering using synthetic biology and artificial intelligence to enhance phage applications in
           food industry</a>, discusses leveraging AI with synthetic biology to modify phages to achieve a set of desired
           characteristics. 
+          </p>
+          <h2>Conclusions</h2>
+          <p>
+            Phage therapy is a promising alternative to antibiotics, and with the help of AI, we are able to
+            predict on, optimize, and engineer phages to accelerate the efficacy of phage-therapy.
           </p>
         </div>
       </div>
