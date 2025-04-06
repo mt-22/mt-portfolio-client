@@ -15,3 +15,105 @@ h2 {
 p {
     font-size: 1.3rem;
 }
+
+/* Table styling */
+.table-container {
+    margin: 2rem 0;
+    overflow-x: auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.comparison-table caption {
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+    text-align: left;
+}
+
+.comparison-table th, 
+.comparison-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border: 1px solid #dee2e6;
+    vertical-align: top;
+}
+
+.comparison-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #333;
+}
+
+.comparison-table td:last-child {
+    /* Reference column */
+    text-align: center;
+    width: 60px;
+}
+
+.comparison-table td:last-child a {
+    color: #0066cc;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.comparison-table td:last-child a:hover {
+    color: #003366;
+    text-decoration: underline;
+}
+
+.comparison-table td:nth-child(4) {
+    /* Year column */
+    text-align: center;
+    width: 80px;
+}
+
+.comparison-table tr:hover {
+    background-color: #f8f9fa;
+}
+
+.table-citation {
+    font-size: 0.85rem;
+    color: #666;
+    padding: 0.75rem;
+    border-top: 1px solid #dee2e6;
+    background-color: #f8f9fa;
+}
+
+.table-citation a {
+    color: #0066cc;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.table-citation a:hover {
+    color: #003366;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .comparison-table {
+        font-size: 0.8rem;
+    }
+    
+    .comparison-table th, 
+    .comparison-table td {
+        padding: 0.5rem;
+    }
+    
+    .table-citation {
+        font-size: 0.75rem;
+        padding: 0.5rem;
+    }
+}

@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';  
 import {Carousel} from 'react-bootstrap';  
-import portrait from '../media/portrait.jpg'
+import portrait from '../media/portrait.webp'
 import {MTCar, MTRacing, MTMex, MTCampus, MTDogs, TSLogo, PyLogo, SQLLogo, ReactLogo, SwiftLogo, FlaskLogo, GitLogo, HTMLLogo} from '../media'
 import handleViewport from 'react-in-viewport'
 import PercentBar from '../components/PercentBar';
@@ -290,7 +290,7 @@ const HomePage = () => {
                         <NavItem text="Projects" link="/projects"/>
                         <NavItem text="Blog" link="/blog"/>
                     </div> */}
-                        <NavItem text="Top" link="#top-view"/>
+                        <NavItem text="Top" link="#landing-title-view"/>
                         <NavItem text="Technical Skills" link="#hardskills-view"/>
                         <NavItem text="Soft Skills" link="#softskills-view"/>
                         <NavItem text="Experience" link="#experience-view"/>
