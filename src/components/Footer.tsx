@@ -1,7 +1,7 @@
 import React, { ReactNode, useState } from 'react'
-import {ReactComponent as LinkedInLogo} from '../media/linkedin-logo.svg'
-import {ReactComponent as InstagramLogo} from '../media/instagram-logo.svg'
-import {ReactComponent as GithubLogo} from '../media/github-logo.svg'
+import LinkedInLogo from '../media/linkedin-logo.svg?react'
+import InstagramLogo from '../media/instagram-logo.svg?react'
+import GithubLogo from '../media/github-logo.svg?react'
 import { useNavigate } from 'react-router-dom'
 import { hover } from '@testing-library/user-event/dist/hover'
 

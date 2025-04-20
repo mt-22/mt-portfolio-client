@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {ReactComponent as MenuLines} from '../media/menu-lines.svg'
+import MenuLines from '../media/menu-lines.svg?react'
 
 
 

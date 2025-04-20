@@ -25,7 +25,7 @@ const BlogPostPage: React.FC = () => {
       try {
         setLoading(true);
         // Dynamically import the blog post component
-        const module = await import(`../blogs/${slug}`);
+        const module = await import(`../blogs/${slug}.tsx`);
         setPost(() => module.default);
         setMetadata(module.metadata);
         setError(null);

@@ -1,14 +1,30 @@
-export const MTRacing = require('./media/MT_racing.webp')
-export const  MTCampus = require('./media/MT_campus.jpg')
-export const MTDogs = require('./media/MT_dogs.webp')
-export const MTMex = require('./media/MT_mex.jpg')
-export const MTCar = require('./media/MT_car.jpg')
-export const TSLogo = require('./media/png-transparent-typescript-hd-logo-thumbnail.png')
-export const PyLogo = require('./media/Python-logo-notext-rotate-flip.png')
-export const ReactLogo = require('./media/React-icon.png')
-export const SQLLogo = require('./media/sql-logo.webp')
-export const SwiftLogo = require('./media/swift.webp')
-export const FlaskLogo = require('./media/flask-logo-png-transparent.webp')
-export const GitLogo = require('./media/github-logo.png')
-export const HTMLLogo = require('./media/html-logo.png')
+import MTRacing from './media/MT_racing.webp'
+import MTDogs from './media/MT_dogs.webp'
+import MTMex from './media/MT_mex.jpg'
+import MTCar from './media/MT_car.jpg'
+import MTCampus from './media/MT_campus.jpg'
+import TSLogo from './media/png-transparent-typescript-hd-logo-thumbnail.png'
+import PyLogo from './media/Python-logo-notext-rotate-flip.png'
+import ReactLogo from './media/React-icon.png'
+import SQLLogo from './media/sql-logo.webp'
+import SwiftLogo from './media/swift.webp'
+import FlaskLogo from './media/flask-logo-png-transparent.webp'
+import GitLogo from './media/github-logo.png'
+import HTMLLogo from './media/html-logo.png'
+
+export {
+    MTRacing,
+    MTDogs,
+    MTMex,
+    MTCar,
+    MTCampus,
+    TSLogo,
+    PyLogo,
+    ReactLogo,
+    SQLLogo,
+    SwiftLogo,
+    FlaskLogo,
+    GitLogo,
+    HTMLLogo
+}
 

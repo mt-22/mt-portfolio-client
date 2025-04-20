@@ -122,5 +122,10 @@
     }
 } 
 
+@media all and (max-width: 340px) {
+    .landing-title-view .name-wrapper h1 {
+        font-size: 1.5rem;
+    }
+} 
 
 

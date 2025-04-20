@@ -21,6 +21,11 @@ const BacteriophagesResearch: React.FC = () => {
           <span className="blog-category">{metadata.category}</span>
         </div>
         <h1>{metadata.title}</h1>
+        <meta
+          name="description"
+          content="Discover how bacteriophages offer a promising alternative to antibiotics, with insights
+           into AI-driven research and synthetic biology advancements."
+        />
         <div className="blog-text">
           <p>
             We have been using <a href="https://www.sciencedirect.com/science/article/pii/S1369527419300190">antibiotics</a> to
@@ -36,9 +41,10 @@ const BacteriophagesResearch: React.FC = () => {
             Bacteriophages are specialized <a href="https://www.britannica.com/science/virus">viruses</a> that only target bacteria. Given
              that they are viruses, they are technically not <i>alive</i>, and need a host to survive and replicate. 
              They inject their genetic information into a <i>specific</i> bacteria, forcing it to produce new phages until
-             it dies. 
+             it dies. Think of it like the phage hijacking the bacterium's own machinery, turning it into a factory solely 
+             dedicated to making more phages. 
           </p>
-          <img className='phage-diagram' src={BacteriophageDiagram} alt="bactiophage-diagram"/>
+          <img className='phage-diagram' src={BacteriophageDiagram} alt="Diagram of bacteriophage injection into a bacterium"/>
           </div> 
           <p>Due to their predatory relationship against bacteria, bacteriophages play a vital role in microbiome populations
             everywhere, including in your stomach.
@@ -225,16 +231,43 @@ const BacteriophagesResearch: React.FC = () => {
             we are able to predict which phages could potentially kill a given bacteria, as well as predict the host-range
             of a particular phage.
           </p>
-          <p>AI has other uses in phage-therapy, particularly when integrated with <a href='https://www.sciencedirect.com/science/article/abs/pii/S2214799325000049?utm_source=chatgpt.com'>
-          synthetic biology</a> applications. A study found at <i>Science Direct</i>, <a href='https://www.sciencedirect.com/science/article/abs/pii/S2214799325000049?utm_source=chatgpt.com'>
+          <p>
+            A study in the <i>Computational and Structural BioTechnology Journal</i>: <a href="https://www.csbj.org/article/S2001-0370(23)00227-1/fulltext">GSPHI: A novel deep learning model for predicting phage-host
+               interactions via multiple biological information</a>, discusses the creation and testing of a deep learning model
+               to predict these phage-host interactions. This model uses a combination of multiple biological data sources including
+               the DNA/protein sequences of the phage (encoded using <a href="https://en.wikipedia.org/wiki/Natural_language_processing">NLP</a> techniques),
+              recepter-binding protein sequences of the host (encoded similarly), a network of phage-host interactions (PHIs) represented as 
+               a <a href="https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)">graph</a>, and 
+               other <a href="https://en.wikipedia.org/wiki/Feature_(machine_learning)">features</a>. It 
+               leverages <a href="https://www.kdd.org/kdd2016/papers/files/rfp0191-wangAemb.pdf">Structural Deep Network Embedding</a> (SDNE) to map 
+               both the local structure of the PHI network for a given phage, and the global structure of the PHI network as vectors
+               which can be used as features for the model. This hybrid system allows the model to learn subtle, abstract
+               patterns between these features, and make predictions on which phages may infect which hosts.
+          </p>
+
+          {/* GSPHI Model Architecture Diagram */}
+          <h2 className='diagram-title'>GSPHI Model Architecture</h2>
+          <img className='phage-diagram' 
+          src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/d667/10314231/d4c0ad90b6d8/gr1.jpg" 
+          alt="GSPHI model architecture diagram"/>
+          <p className="image-cite" id='image-cite'>Figure adapted from Pan et al., “GSPHI: Deep Learning for Phage-Host Pairing,” Computational and Structural Biotechnology Journal, 2023. Licensed under CC BY-NC-ND 4.0.</p>
+
+          <p>AI has uses in phage-therapy beyond predictive modleing, particularly when integrated with <a href='https://www.gao.gov/products/gao-23-106648#:~:text=Synthetic%20biology%20is%20a%20multidisciplinary,animals%E2%80%94to%20have%20new%20characteristics.'>
+          synthetic biology</a> applications. A review found at <i>Science Direct</i>, <a href='https://www.sciencedirect.com/science/article/abs/pii/S2214799325000049'>
           Phage engineering using synthetic biology and artificial intelligence to enhance phage applications in
           food industry</a>, discusses leveraging AI with synthetic biology to modify phages to achieve a set of desired
-          characteristics. 
+          characteristics (e.g., "broad host range, and good tolerance"). The idea discussed in this study is to use a cocktail of these engineered
+          phages to combat diverse, complex pathogenic bacteria found in foods. 
           </p>
           <h2>Conclusions</h2>
           <p>
-            Phage therapy is a promising alternative to antibiotics, and with the help of AI, we are able to
-            predict on, optimize, and engineer phages to accelerate the efficacy of phage-therapy.
+          Phage therapy is a promising alternative to antibiotics, especially with the rise of antimicrobial 
+          resistance, which is challenging our approach to treating infections. However, several obstacles remain 
+          before phage therapy can become a widely adopted and effective treatment method. We need to identify the 
+          right phages for specific infections and ensure their efficacy in diverse environments. With the integration 
+          of AI into phage research, the pace at which we can search for, optimize, and engineer these phages has 
+          accelerated significantly. As our understanding and research in both phage therapy and AI continue to 
+          evolve, we can expect to see even greater advancements in the applications of phage therapy.
           </p>
         </div>
       </div>

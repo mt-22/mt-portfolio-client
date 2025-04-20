@@ -3,6 +3,21 @@
     max-width: 100%;
     object-fit: contain;
 }
+.image-cite {
+    font-size: 0.5rem;
+}
+.diagram-title {
+    text-align: center;
+}
+#image-cite {
+    font-size: 0.75rem;
+    width: 80%;
+    margin: 0 auto 1rem auto;
+}
+.blog-text {
+    display: flex;
+    flex-direction: column;
+}
 .about-phages {
     display: flex;
     flex-direction: row;
@@ -209,4 +224,22 @@
     .table-container {
         margin: 1rem 0;
     }
+}
+
+/* Mobile screens (340px and below) */
+@media (max-width: 340px) {
+    
+    .comparison-table {
+        font-size: 0.4rem;
+    }
+    
+    .comparison-table th, 
+    .comparison-table td {
+        padding: 0.2rem;
+    }
+    
+    .comparison-table caption {
+        padding: 0.4rem;
+    }
+    
 }

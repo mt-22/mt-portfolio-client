@@ -16,8 +16,12 @@ interface BlogPost {
     coverImage?: string;
 }
 
+interface BlogModule {
+    metadata: BlogPost;
+}
+
 // Get all blog files from the blogs directory
-const blogContext = require.context('../blogs', false, /\.tsx$/);
+const blogModules = import.meta.glob('../blogs/*.tsx');
 
 const BlogList: React.FC = () => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -29,16 +33,18 @@ const BlogList: React.FC = () => {
         const importBlogs = async () => {
             try {
                 // Get all blog files from the blogs directory
-                const blogModules = await Promise.all(
-                    blogContext.keys().map(key => blogContext(key))
+                const posts = await Promise.all(
+                    Object.entries(blogModules).map(async ([path, importFn]) => {
+                        const module = await importFn() as BlogModule;
+                        return module.metadata;
+                    })
                 );
                 
-                // Extract metadata from each blog module
-                const posts = blogModules
-                    .map(module => module.metadata)
-                    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()); // Sort by date, newest first
-                
-                setBlogPosts(posts);
+                // Sort by date, newest first
+                const sortedPosts = posts.sort((a: BlogPost, b: BlogPost) => 
+                    new Date(b.date).getTime() - new Date(a.date).getTime()
+                );
+                setBlogPosts(sortedPosts);
             } catch (error) {
                 console.error('Error loading blog posts:', error);
             }
