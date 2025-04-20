@@ -1,6 +1,3 @@
-import React from 'react'
-import Document from 'react-pdf'
-
 const Resume = () => {
   return (
     <div style={{height:"100vh", width:"100%", margin:0}}>
