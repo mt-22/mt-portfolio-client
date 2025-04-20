@@ -11,7 +11,7 @@
     "@types/jest": "^27.5.2",
     "@types/marked": "^5.0.2",
     "@types/mdx": "^2.0.13",
-    "@types/node": "^16.18.36",
+    "@types/node": "^22.14.1",
     "@types/react": "^18.2.13",
     "@types/react-dom": "^18.2.6",
     "@vercel/analytics": "^1.5.0",
