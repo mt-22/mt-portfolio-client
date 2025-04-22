@@ -5,14 +5,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/global.css'
 import reportWebVitals from './reportWebVitals';
 import Router from './Router';
+import { Analytics } from "@vercel/analytics/react"
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <Router />
-  </React.StrictMode>
+    <React.StrictMode>
+        <Router />
+        <Analytics/>
+    </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
