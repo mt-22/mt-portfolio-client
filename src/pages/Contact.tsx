@@ -13,6 +13,8 @@ import {Spinner} from 'react-bootstrap';
 import LandingPage from '../components/LandingPage'
 import BackgroundImage from '../media/contactbackground.jpg'
 
+
+
 const Contact = () => {
     const bodyInputRef = useRef<HTMLTextAreaElement>(null)
     const recaptchaRef = useRef<any>(null)
@@ -28,7 +30,7 @@ const Contact = () => {
 
     }, [body])
 
-    const key = import.meta.env.RECAPTCHA_SITE_KEY;
+    const key = process.env.RECAPTCHA_SITE_KEY; 
 
     const adjustTextArea = () => {
         bodyInputRef.current && (bodyInputRef.current.style.height = "auto");

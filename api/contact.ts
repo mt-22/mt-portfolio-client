@@ -2,6 +2,7 @@ import { Resend } from 'resend';
 
 // Define the email addresses from environment variables with defaults
 const FROM_EMAIL = process.env.FROM_EMAIL || 'noreply@marshalltaylor.org';
+
 const TO_EMAIL = process.env.CONTACT_EMAIL || 'placeholder@example.com';
 
 export default async function handler(request: Request) {
