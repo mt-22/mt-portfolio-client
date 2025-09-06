@@ -6,14 +6,16 @@ type ButtonProps = {
     className?: string,
     id?: string,
     onClick?: () => void,
+    disabled?: boolean,
 }
 
-const Button = ({text, className = "", id = "", onClick}:ButtonProps) => {
+const Button = ({text, className = "", id = "", onClick, disabled = false}:ButtonProps) => {
   return (
     <div 
-    onClick={() => onClick && onClick()}
-    className={"mt-button " + className}
+    onClick={() => !disabled && onClick && onClick()}
+    className={"mt-button " + className + (disabled ? " disabled" : "")}
     id={id}
+    style={disabled ? {opacity: 0.5, pointerEvents: 'none', cursor: 'not-allowed'} : {}}
     >
         {text}
     </div>

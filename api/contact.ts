@@ -41,7 +41,7 @@ export default async function handler(request: Request) {
 
   try {
     // Parse the request body
-    const { name, email, body } = await request.json();
+    const { name, email, body, recaptchaToken } = await request.json();
 
     // Validate required fields
     if (!name || !email || !body) {
@@ -62,6 +62,52 @@ export default async function handler(request: Request) {
     if (!emailRegex.test(email)) {
       return new Response(
         JSON.stringify({ error: 'Invalid email format' }),
+        {
+          status: 400,
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+          },
+        }
+      );
+    }
+
+    // Verify reCAPTCHA token if provided
+    if (recaptchaToken) {
+      const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
+      if (!recaptchaSecret) {
+        return new Response(
+          JSON.stringify({ error: 'Server configuration error: Missing RECAPTCHA_SECRET_KEY' }),
+          {
+            status: 500,
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*',
+            },
+          }
+        );
+      }
+
+      // Verify the reCAPTCHA token with Google
+      const recaptchaVerifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${recaptchaToken}`;
+      const recaptchaResponse = await fetch(recaptchaVerifyUrl, { method: 'POST' });
+      const recaptchaData = await recaptchaResponse.json();
+
+      if (!recaptchaData.success) {
+        return new Response(
+          JSON.stringify({ error: 'reCAPTCHA verification failed' }),
+          {
+            status: 400,
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*',
+            },
+          }
+        );
+      }
+    } else {
+      return new Response(
+        JSON.stringify({ error: 'Missing reCAPTCHA token' }),
         {
           status: 400,
           headers: {

@@ -21,9 +21,8 @@ const Contact = () => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [body, setBody] = useState('')
-    const [submitDisabled, setSubmitDisabled] = useState(true)
-    const [verified, setVerified] = useState(false)
     const [loading, setLoading] = useState(false)
+    const [formError, setFormError] = useState('')
 
     useEffect(() => {
         adjustTextArea()
@@ -38,46 +37,71 @@ const Contact = () => {
     }
 
     const submitMessage = async () => {
-        if (name.length > 0 && email.length > 0 && body.length > 0 && !submitDisabled) {
-            setSubmitDisabled(true)
-            setLoading(true)
-            try {
-                // Use the Vercel serverless function for contact form submissions
-                const resp = await fetch('/api/contact', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        name,
-                        email,
-                        body
-                    })
-                })
-                
-                if (resp.ok) {
-                    // Reset form on success
-                    setName("")
-                    setEmail("")
-                    setBody("")
-                    // Reset reCAPTCHA
-                    if (recaptchaRef.current) {
-                        recaptchaRef.current.reset()
-                    }
-                } else {
-                    const errorData = await resp.json()
-                    console.error('Error submitting contact form:', errorData.error)
-                }
-            } catch (error: any) {
-                console.log(error)
-            }
-            setLoading(false)
+        // Clear any previous errors
+        setFormError('')
+        
+        // Basic validation
+        if (!name.trim()) {
+            setFormError('Please enter your name')
+            return
         }
-    }
+        if (!email.trim()) {
+            setFormError('Please enter your email')
+            return
+        }
+        if (!body.trim()) {
+            setFormError('Please enter your message')
+            return
+        }
+        
+        // Email format validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        if (!emailRegex.test(email)) {
+            setFormError('Please enter a valid email address')
+            return
+        }
 
-    const captchaChange = () => {
-        setVerified(true);
-        setSubmitDisabled(false);
+        setLoading(true)
+        try {
+            // Get the reCAPTCHA token
+            const recaptchaToken = recaptchaRef.current ? await recaptchaRef.current.executeAsync() : null;
+            
+            // Use the Vercel serverless function for contact form submissions
+            const resp = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name,
+                    email,
+                    body,
+                    recaptchaToken
+                })
+            })
+            
+            if (resp.ok) {
+                // Reset form on success
+                setName("")
+                setEmail("")
+                setBody("")
+                // Reset reCAPTCHA
+                if (recaptchaRef.current) {
+                    recaptchaRef.current.reset()
+                }
+            } else {
+                const errorData = await resp.json()
+                if (errorData.error === 'reCAPTCHA verification failed') {
+                    setFormError('reCAPTCHA verification failed. Please try again.')
+                } else {
+                    setFormError('Error submitting contact form: ' + errorData.error)
+                }
+            }
+        } catch (error: any) {
+            console.log(error)
+            setFormError('Network error. Please try again.')
+        }
+        setLoading(false)
     }
 
     return (
@@ -127,12 +151,14 @@ const Contact = () => {
                                 value={body}
                                 onChange={(e) => setBody(e.target.value)}
                                 />
-                                <Button 
-                                text={(submitDisabled? "Try again later." : "Submit")} 
+                                                                <Button 
+                                text={loading ? "Sending..." : "Submit"} 
                                 onClick={submitMessage}
                                 className={"contact-submit-button"}
-                                id={(submitDisabled? "contact-submit-button-disabled" : " ")}
+                                id={loading ? "contact-submit-button-disabled" : ""}
+                                disabled={loading}
                                 />
+                                {formError && <p className="contact-loading-text" style={{color: '#ff6b6b'}}>{formError}</p>}
                                 {loading && <>
                                 <Spinner className="contact-loading"/>
                                 <p className='contact-loading-text'>Long wait times may be due to server waking up.</p>
@@ -140,9 +166,8 @@ const Contact = () => {
                                 <ReCAPTCHA 
                                 ref={recaptchaRef}
                                 sitekey={key} 
-                                size="normal" 
+                                size="invisible" 
                                 theme="dark"
-                                onChange={captchaChange}
                                 />
                             </div>
                             <p className='contact-email'>Contact Me Directely: <a href="mailto: marshalldt22@gmail.com">marshalldt22@gmail.com</a></p>

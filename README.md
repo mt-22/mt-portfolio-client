@@ -55,9 +55,10 @@ To enable the contact form functionality:
    
 To enable the reCAPTCHA verification:
 1. Sign up for Google reCAPTCHA at https://www.google.com/recaptcha/admin
-2. Register your domain and obtain your site key
-3. Set the following environment variable:
-   - `VITE_RECAPTCHA_SITE_KEY`: Your reCAPTCHA site key
+2. Register your domain and obtain your site key and secret key
+3. Set the following environment variables:
+   - `VITE_RECAPTCHA_SITE_KEY`: Your reCAPTCHA site key (for frontend)
+   - `RECAPTCHA_SECRET_KEY`: Your reCAPTCHA secret key (for backend verification)
 
 ## Learn More
 
