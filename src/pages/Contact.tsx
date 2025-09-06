@@ -23,6 +23,7 @@ const Contact = () => {
     const [body, setBody] = useState('')
     const [loading, setLoading] = useState(false)
     const [formError, setFormError] = useState('')
+    const [recaptchaVerified, setRecaptchaVerified] = useState(false)
 
     useEffect(() => {
         adjustTextArea()
@@ -61,10 +62,16 @@ const Contact = () => {
             return
         }
 
+        // Check if reCAPTCHA is verified
+        if (!recaptchaVerified) {
+            setFormError('Please complete the reCAPTCHA verification')
+            return
+        }
+
         setLoading(true)
         try {
-            // Get the reCAPTCHA token
-            const recaptchaToken = recaptchaRef.current ? await recaptchaRef.current.executeAsync() : null;
+            // Get the reCAPTCHA response token
+            const recaptchaToken = recaptchaRef.current ? recaptchaRef.current.getValue() : null;
             
             // Use the Vercel serverless function for contact form submissions
             const resp = await fetch('/api/contact', {
@@ -85,6 +92,7 @@ const Contact = () => {
                 setName("")
                 setEmail("")
                 setBody("")
+                setRecaptchaVerified(false)
                 // Reset reCAPTCHA
                 if (recaptchaRef.current) {
                     recaptchaRef.current.reset()
@@ -102,6 +110,10 @@ const Contact = () => {
             setFormError('Network error. Please try again.')
         }
         setLoading(false)
+    }
+
+    const captchaChange = (value: string | null) => {
+        setRecaptchaVerified(!!value);
     }
 
     return (
@@ -155,7 +167,7 @@ const Contact = () => {
                                 text={loading ? "Sending..." : "Submit"} 
                                 onClick={submitMessage}
                                 className={"contact-submit-button"}
-                                disabled={loading}
+                                disabled={loading || !recaptchaVerified}
                                 />
                                 {formError && <p className="contact-loading-text" style={{color: '#ff6b6b'}}>{formError}</p>}
                                 {loading && <>
@@ -167,6 +179,7 @@ const Contact = () => {
                                 sitekey={key} 
                                 size="normal" 
                                 theme="dark"
+                                onChange={captchaChange}
                                 />
                             </div>
                             <p className='contact-email'>Contact Me Directely: <a href="mailto: marshalldt22@gmail.com">marshalldt22@gmail.com</a></p>
