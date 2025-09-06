@@ -15,6 +15,7 @@ import BackgroundImage from '../media/contactbackground.jpg'
 
 const Contact = () => {
     const bodyInputRef = useRef<HTMLTextAreaElement>(null)
+    const recaptchaRef = useRef<any>(null)
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [body, setBody] = useState('')
@@ -27,7 +28,7 @@ const Contact = () => {
 
     }, [body])
 
-    const key = "6LeY9McmAAAAAGXu3BY1uScrMq70QGnbNNbCpVJA" //put in env var
+    const key = import.meta.env.RECAPTCHA_SITE_KEY;
 
     const adjustTextArea = () => {
         bodyInputRef.current && (bodyInputRef.current.style.height = "auto");
@@ -35,24 +36,40 @@ const Contact = () => {
     }
 
     const submitMessage = async () => {
-        if (name.length > 0 && email.length > 0 && body.length > 0 &&  !submitDisabled) {
+        if (name.length > 0 && email.length > 0 && body.length > 0 && !submitDisabled) {
             setSubmitDisabled(true)
             setLoading(true)
-            console.log('foo')
             try {
-                const resp = await httpClient.post('//localhost:5000/' + 'contact', {
-                    name,
-                    email,
-                    body
+                // Use the Vercel serverless function for contact form submissions
+                const resp = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name,
+                        email,
+                        body
+                    })
                 })
-                setName("")
-                setEmail("")
-                setBody("")
-            } catch (error:any) {
+                
+                if (resp.ok) {
+                    // Reset form on success
+                    setName("")
+                    setEmail("")
+                    setBody("")
+                    // Reset reCAPTCHA
+                    if (recaptchaRef.current) {
+                        recaptchaRef.current.reset()
+                    }
+                } else {
+                    const errorData = await resp.json()
+                    console.error('Error submitting contact form:', errorData.error)
+                }
+            } catch (error: any) {
                 console.log(error)
             }
             setLoading(false)
-            console.log('bar')
         }
     }
 
@@ -119,6 +136,7 @@ const Contact = () => {
                                 <p className='contact-loading-text'>Long wait times may be due to server waking up.</p>
                                 </>}
                                 <ReCAPTCHA 
+                                ref={recaptchaRef}
                                 sitekey={key} 
                                 size="normal" 
                                 theme="dark"

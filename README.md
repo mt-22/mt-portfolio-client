@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Marshall Taylor's Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the personal portfolio website of Marshall Taylor, built with React and TypeScript.
 
 ## Available Scripts
 
@@ -29,15 +29,35 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Contact Form
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+This portfolio includes a contact form that uses a serverless function to send emails via Resend.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### How it works
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+When a user submits the contact form:
+1. The form data is sent to a Vercel serverless function (`/api/contact`)
+2. The function validates the input and sends two emails using Resend:
+   - A notification email to the site owner
+   - A confirmation email to the user
+3. Both emails are sent from the `FROM_EMAIL` environment variable or `noreply@marshalltaylor.org` by default
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Setup
+
+To enable the contact form functionality:
+1. Sign up for a Resend account at https://resend.com/
+2. Obtain your API key from the Resend dashboard
+3. Add your domain in Resend and verify it
+4. Set the following environment variables in your Vercel project:
+   - `RESEND_API_KEY`: Your Resend API key
+   - `CONTACT_EMAIL`: The email address where you want to receive notifications
+   - `FROM_EMAIL`: (Optional) The email address to send emails from (defaults to noreply@marshalltaylor.org)
+   
+To enable the reCAPTCHA verification:
+1. Sign up for Google reCAPTCHA at https://www.google.com/recaptcha/admin
+2. Register your domain and obtain your site key
+3. Set the following environment variable:
+   - `RECAPTCHA_SITE_KEY`: Your reCAPTCHA site key
 
 ## Learn More
 
