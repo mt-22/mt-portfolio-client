@@ -57,7 +57,7 @@ To enable the reCAPTCHA verification:
 1. Sign up for Google reCAPTCHA at https://www.google.com/recaptcha/admin
 2. Register your domain and obtain your site key
 3. Set the following environment variable:
-   - `RECAPTCHA_SITE_KEY`: Your reCAPTCHA site key
+   - `VITE_RECAPTCHA_SITE_KEY`: Your reCAPTCHA site key
 
 ## Learn More
 

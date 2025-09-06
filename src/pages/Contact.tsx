@@ -30,7 +30,7 @@ const Contact = () => {
 
     }, [body])
 
-    const key = process.env.RECAPTCHA_SITE_KEY || ""; 
+    const key = import.meta.env.VITE_RECAPTCHA_SITE_KEY || ""; 
 
     const adjustTextArea = () => {
         bodyInputRef.current && (bodyInputRef.current.style.height = "auto");
