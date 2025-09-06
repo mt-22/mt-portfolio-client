@@ -71,16 +71,6 @@
     color: #252525;
     transition: background 0.5s, color 0.5s, box-shadow 0.5s;
 }
-#contact-submit-button-disabled {
-    box-shadow: 0 0 7.5px #f7ca1578;
-    background: #252525;
-    color: #F7CB15;
-    transition: background 0.5s, color 0.5s, box-shadow 0.5s;
-    animation-name: shadow-pulse;
-    animation-duration: 1.5s;
-    animation-timing-function: ease-out;
-    animation-iteration-count: infinite;
-}
 .contact-submit-button:hover {
     background: #252525;
     box-shadow: 0 0 7.5px #f7ca1578;

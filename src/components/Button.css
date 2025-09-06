@@ -9,4 +9,18 @@
 .mt-button.disabled {
     opacity: 0.5;
     cursor: not-allowed;
+    box-shadow: 0 0 7.5px #f7ca1578;
+    background: #252525;
+    color: #F7CB15;
+    transition: background 0.5s, color 0.5s, box-shadow 0.5s;
+    animation-name: shadow-pulse;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes shadow-pulse{
+    0% {box-shadow: 0 0 7.5px #f7ca1578;}
+    50% {box-shadow: 0 0 17.5px #f7ca1578;}
+    100% {box-shadow: 0 0 7.5px #f7ca1578;}
 }

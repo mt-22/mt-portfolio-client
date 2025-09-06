@@ -155,7 +155,6 @@ const Contact = () => {
                                 text={loading ? "Sending..." : "Submit"} 
                                 onClick={submitMessage}
                                 className={"contact-submit-button"}
-                                id={loading ? "contact-submit-button-disabled" : ""}
                                 disabled={loading}
                                 />
                                 {formError && <p className="contact-loading-text" style={{color: '#ff6b6b'}}>{formError}</p>}
@@ -166,7 +165,7 @@ const Contact = () => {
                                 <ReCAPTCHA 
                                 ref={recaptchaRef}
                                 sitekey={key} 
-                                size="invisible" 
+                                size="normal" 
                                 theme="dark"
                                 />
                             </div>
