@@ -24,6 +24,7 @@ export default async function handler(request: Request) {
 
   // Check if RESEND_API_KEY is set
   if (!process.env.RESEND_API_KEY) {
+    console.error('RESEND_API_KEY is not set');
     return new Response(
       JSON.stringify({ error: 'Server configuration error: Missing RESEND_API_KEY' }),
       {
@@ -76,47 +77,29 @@ export default async function handler(request: Request) {
     if (recaptchaToken) {
       const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
       if (!recaptchaSecret) {
-        return new Response(
-          JSON.stringify({ error: 'Server configuration error: Missing RECAPTCHA_SECRET_KEY' }),
-          {
-            status: 500,
-            headers: {
-              'Content-Type': 'application/json',
-              'Access-Control-Allow-Origin': '*',
-            },
-          }
-        );
-      }
+        // Log warning but don't fail the request if reCAPTCHA is not configured
+        console.warn('RECAPTCHA_SECRET_KEY is not set, skipping reCAPTCHA verification');
+      } else {
+        // Verify the reCAPTCHA token with Google
+        const recaptchaVerifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${recaptchaToken}`;
+        const recaptchaResponse = await fetch(recaptchaVerifyUrl, { method: 'POST' });
+        const recaptchaData = await recaptchaResponse.json();
 
-      // Verify the reCAPTCHA token with Google
-      const recaptchaVerifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${recaptchaToken}`;
-      const recaptchaResponse = await fetch(recaptchaVerifyUrl, { method: 'POST' });
-      const recaptchaData = await recaptchaResponse.json();
-
-      if (!recaptchaData.success) {
-        return new Response(
-          JSON.stringify({ error: 'reCAPTCHA verification failed' }),
-          {
-            status: 400,
-            headers: {
-              'Content-Type': 'application/json',
-              'Access-Control-Allow-Origin': '*',
-            },
-          }
-        );
-      }
-    } else {
-      return new Response(
-        JSON.stringify({ error: 'Missing reCAPTCHA token' }),
-        {
-          status: 400,
-          headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-          },
+        if (!recaptchaData.success) {
+          return new Response(
+            JSON.stringify({ error: 'reCAPTCHA verification failed' }),
+            {
+              status: 400,
+              headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+              },
+            }
+          );
         }
-      );
+      }
     }
+    // If no recaptchaToken is provided, we'll proceed without verification
 
     // Send notification email to myself
     const notificationEmail = await resend.emails.send({
