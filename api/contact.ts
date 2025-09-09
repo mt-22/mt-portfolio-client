@@ -67,6 +67,46 @@ export async function POST(request: Request) {
       );
     }
 
+    // Validate field lengths
+    if (name.length > 100) {
+      return new Response(
+        JSON.stringify({ error: 'Name must be 100 characters or less' }),
+        {
+          status: 400,
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+          },
+        }
+      );
+    }
+
+    if (email.length > 254) {
+      return new Response(
+        JSON.stringify({ error: 'Email must be 254 characters or less' }),
+        {
+          status: 400,
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+          },
+        }
+      );
+    }
+
+    if (body.length > 3000) {
+      return new Response(
+        JSON.stringify({ error: 'Message must be 3000 characters or less' }),
+        {
+          status: 400,
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+          },
+        }
+      );
+    }
+
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
