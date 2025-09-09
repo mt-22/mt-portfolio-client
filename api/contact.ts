@@ -2,26 +2,35 @@ import { Resend } from 'resend';
 
 // Define the email addresses from environment variables with defaults
 const FROM_EMAIL = process.env.FROM_EMAIL || 'noreply@marshalltaylor.org';
-
 const TO_EMAIL = process.env.CONTACT_EMAIL || 'placeholder@example.com';
 
-export default async function handler(request: Request) {
-  // Only allow POST requests
-  if (request.method !== 'POST') {
-    return new Response(
-      JSON.stringify({ error: 'Method not allowed' }),
-      {
-        status: 405,
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods': 'POST',
-          'Access-Control-Allow-Headers': 'Content-Type',
-        },
-      }
-    );
-  }
+// Handle CORS preflight requests
+export async function OPTIONS(request: Request) {
+  return new Response(null, {
+    status: 204,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    },
+  });
+}
 
+// Handle GET requests - useful for testing if the endpoint is working
+export async function GET(request: Request) {
+  return new Response(
+    JSON.stringify({ message: 'Contact form API endpoint' }),
+    {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
+    }
+  );
+}
+
+export async function POST(request: Request) {
   // Check if RESEND_API_KEY is set
   if (!process.env.RESEND_API_KEY) {
     console.error('RESEND_API_KEY is not set');

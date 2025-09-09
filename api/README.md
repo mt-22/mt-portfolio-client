@@ -1,6 +1,6 @@
 # Contact Form API
 
-This directory contains the serverless function for handling contact form submissions using Resend.
+This directory contains the serverless function for handling contact form submissions using Resend, following Vercel's function standards.
 
 ## Environment Variables
 
@@ -25,12 +25,15 @@ To use this function, you need to set the following environment variables in you
 
 ## Function Details
 
-The contact form function (`contact.ts`) handles POST requests and:
+The contact form function (`contact.ts`) exports individual HTTP method handlers:
 
-1. Validates the input data
-2. Sends a notification email to your CONTACT_EMAIL address with the user's message
-3. Sends a confirmation email to the user
-4. Uses the FROM_EMAIL environment variable (or noreply@marshalltaylor.org by default) as the sender address for both emails
+1. `POST` - Handles contact form submissions:
+   - Validates the input data
+   - Sends a notification email to your CONTACT_EMAIL address with the user's message
+   - Sends a confirmation email to the user
+   - Uses the FROM_EMAIL environment variable (or noreply@marshalltaylor.org by default) as the sender address for both emails
+2. `GET` - Returns a simple message indicating the API endpoint is working
+3. `OPTIONS` - Handles CORS preflight requests
 
 ## Testing
 
