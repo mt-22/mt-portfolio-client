@@ -144,31 +144,37 @@ const Contact = () => {
                             </div>
                             <div className='contact-input-wrapper'>
                                 <h2 className='contact-message-heading'>Message Me</h2>
-                                <input className='contact-input'
-                                type="text"
-                                placeholder="Name"
-                                value={name}
-                                maxLength={100}
-                                onChange={(e) => setName(e.target.value)}
-                                />
-                                <div className="character-count">{name.length}/100</div>
-                                <input className='contact-input'
-                                type="text"
-                                placeholder="Email"
-                                value={email}
-                                maxLength={254}
-                                onChange={(e) => setEmail(e.target.value)}
-                                />
-                                <div className="character-count">{email.length}/254</div>
-                                <textarea className='contact-input'
-                                ref={bodyInputRef}
-                                id="contact-body-input"
-                                placeholder="Body"
-                                value={body}
-                                maxLength={3000}
-                                onChange={(e) => setBody(e.target.value)}
-                                />
-                                <div className="character-count">{body.length}/3000</div>
+                                <div className="input-container">
+                                    <input className='contact-input'
+                                    type="text"
+                                    placeholder="Name"
+                                    value={name}
+                                    maxLength={100}
+                                    onChange={(e) => setName(e.target.value)}
+                                    />
+                                    <div className="character-count-inline">{name.length}/100</div>
+                                </div>
+                                <div className="input-container">
+                                    <input className='contact-input'
+                                    type="text"
+                                    placeholder="Email"
+                                    value={email}
+                                    maxLength={254}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    />
+                                    <div className="character-count-inline">{email.length}/254</div>
+                                </div>
+                                <div className="input-container">
+                                    <textarea className='contact-input'
+                                    ref={bodyInputRef}
+                                    id="contact-body-input"
+                                    placeholder="Body"
+                                    value={body}
+                                    maxLength={3000}
+                                    onChange={(e) => setBody(e.target.value)}
+                                    />
+                                    <div className="character-count-inline">{body.length}/3000</div>
+                                </div>
                                                                 <Button 
                                 text={loading ? "Sending..." : "Submit"} 
                                 onClick={submitMessage}
